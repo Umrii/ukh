@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>sign Up</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	
+	<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/style.css">
+<style>
+
+	.form-control {
+		font-size: 16px;
+		transition: all 0.4s;
+		box-shadow: none;
+	}
+	.form-control:focus {
+		border-color: #5cb85c;
+	}
+	.form-control, .btn {
+		border-radius: 50px;
+		outline: none !important;
+	}
+	.signup-form {
+		width: 480px;
+		margin: 0 auto;
+		padding: 30px 0;
+	}
+	.signup-form form {
+		border-radius: 5px;
+		margin-bottom: 20px;
+		background: #fff;
+		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+		padding: 40px;
+	}
+	.signup-form a {
+		color: #5cb85c;
+	}    
+	.signup-form h2 {
+		text-align: center;
+		font-size: 34px;
+		margin: 10px 0 15px;
+	}
+	.signup-form .hint-text {
+		color: #999;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	.signup-form .form-group {
+		margin-bottom: 20px;
+	}
+	.signup-form .btn {        
+		font-size: 18px;
+		line-height: 26px;
+		font-weight: bold;
+		text-align: center;
+	}
+	.signup-btn {
+		text-align: center;
+		border-color: #5cb85c;
+		transition: all 0.4s;
+	}
+	.signup-btn:hover {
+		background: #5cb85c;
+		opacity: 0.8;
+	}
+	.or-seperator {
+		margin: 50px 0 15px;
+		text-align: center;
+		border-top: 1px solid #e0e0e0;
+	}
+	.or-seperator b {
+		padding: 0 10px;
+		width: 40px;
+		height: 40px;
+		font-size: 16px;
+		text-align: center;
+		line-height: 40px;
+		background: #fff;
+		display: inline-block;
+		border: 1px solid #e0e0e0;
+		border-radius: 50%;
+		position: relative;
+		top: -22px;
+		z-index: 1;
+	}
+	.social-btn .btn {
+		color: #fff;
+		margin: 10px 0 0 15px;
+		font-size: 15px;
+		border-radius: 50px;
+		font-weight: normal;
+		border: none;
+		transition: all 0.4s;
+	}	
+	.social-btn .btn:first-child {
+		margin-left: 0;
+	}
+	.social-btn .btn:hover {
+		opacity: 0.8;
+	}
+	.social-btn .btn-primary {
+		background: #507cc0;
+	}
+	.social-btn .btn-info {
+		background: #64ccf1;
+	}
+	.social-btn .btn-danger {
+		background: #df4930;
+	}
+	.social-btn .btn i {
+		float: left;
+		margin: 3px 10px;
+		font-size: 20px;
+	}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			$( "#form1" ).submit(function(event) {
+				event.preventDefault();
+
+				$.ajax({
+					type: 'POST',
+					url: '/',
+					data: $('#form1').serialize(),
+					dataType: "json",
+					success: function(response){
+						//alert("a");
+						//console.log(response.Success);
+						$('#form1')[0].reset();
+
+						document.getElementById("check").innerHTML=response.Success;
+         					//ADD THIS CODE
+         					setTimeout(function(){
+         						document.getElementById("check").innerHTML="";
+         					},3000);
+         					if (response.Success=="You are regestered,You can login now.") {
+         						document.getElementById("aa").click();
+         					};
+         				},
+         				error: function() {
+         				}
+         			})
+			});
+		});
+	</script>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg">
+		<a href="#" class="navbar-brand">A.R<b>Products</b></a>  		
+		<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<!-- Collection of nav links, forms, and other content for toggling -->
+		<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+			<div class="navbar-nav">
+				<a href="/" class="nav-item nav-link active">Home</a>
+				<a href="/about" class="nav-item nav-link">About</a>			
+				
+				<a href="/pricing" class="nav-item nav-link">Pricing</a>
+				<div class="nav-item dropdown">
+				<a href="/pricing" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle">Services</a>
+					<div class="dropdown-menu">					
+						<a href="/low" class="dropdown-item">Economic Range</a>
+						<a href="/middle" class="dropdown-item">Middle Range</a>
+						<a href="/high" class="dropdown-item">Business Range</a>
+					</div>
+				</div>
+				<a href="/contat" class="nav-item nav-link">Contact</a>
+				<div class="nav-item dropdown">
+					<a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle">Options</a>
+					<div class="dropdown-menu">					
+						<a href="/login" class="dropdown-item">Sign in</a>
+						<a href="/reg" class="dropdown-item">Sign Up</a>
+						
+					</div>
+				</div>
+			</div>		
+			<div class="navbar-nav ml-auto">			
+				<div class="nav-item dropdown search-dropdown">
+					<a data-toggle="dropdown" class="nav-item nav-link dropdown-toggle" href="#"><i class="fa fa-search"></i></a>
+					<a data-toggle="dropdown" class="nav-item nav-link dropdown-toggle d-none" href="#"><i class="fa fa-close"></i></a>
+					<div class="dropdown-menu">
+						<div>
+							<form>
+								<div class="input-group search-box">								
+									<input type="text" id="search" class="form-control" placeholder="Search here...">
+									<div class="input-group-append">
+										<button type="button" class="btn btn-primary"><i class="fa fa-search"></i></button>
+									</div>
+								</div>
+							</form>                        
+						</div>
+					</div>
+				</div>
+				<a href="https://www.facebook.com/ar.javed.12/" class="nav-item nav-link"><i class="fa fa-facebook"></i></a>
+				<a href="https://twitter.com/home?lang=en" class="nav-item nav-link"><i class="fa fa-twitter"></i></a>
+				<a href="#" class="nav-item nav-link"><i class="fa fa-google-plus"></i></a>
+				<a href="#" class="nav-item nav-link"><i class="fa fa-pinterest-p"></i></a>
+			</div>
+		</div>
+	</nav>
+	<!-- <div class="col-md-4 col-md-offset-4">
+		<div>
+			<p>Register Now
+			</p>
+		</div>
+		<div class="form-group">
+			<form id="form1" method="post">
+				<input type="email" name="email" placeholder="E-mail" required="" class="form-control"><br/>
+				<input type="text" name="username" placeholder="Username" required="" class="form-control"><br/>
+				<input type="password" name="password" placeholder="Password" required="" class="form-control"><br/>
+				<input type="password" name="passwordConf" placeholder="Confirm Password" required="" class="form-control"><br/>
+				<input type="submit" value="Register" class="btn btn-success">
+			</form>
+		</div>
+		
+		<div class="mssg bg-danger">
+			<span id="check"></span>
+		</div>
+		<div>
+			<span>Already Registered! <a href="/login">Login</a></span>
+		</div>
+		<div id="LangTable"><a href="/login" id="aa"></a>
+		</div>
+	</div> -->
+	<div class="signup-form">
+		<form id="form1" method="post">
+			<script>
+				function check()
+				{
+					const name =document.getElementById("fname");
+					if(name.value=="" ||name.value ==null)
+					{
+						alert("First Name is Missing");
+					}
+					const cnic= document.getElementById("cnic1")
+					if(cnic1.value=="" ||cnic1.value ==null)
+					{
+						alert("CNiC  is Missing");
+					}
+					const emailc=document.getElementById("emailc")
+					if(emailc.value=="" || emailc.value==null)
+					{
+						alert("Email is missing")
+					}
+					const phone1=document.getElementById("phone1")
+					if(phone1.value=="" || phone1.value==null)
+					{
+						alert("Phone Number is Missing is missing")
+					}
+					const pass=document.getElementById("pass")
+					if(pass.value != "")
+					{
+						if(pass.value.length<6)
+						{
+							alert("Week Password")
+						}
+					}
+					else
+					{
+						alert("Password is Empty")
+					}
+					const conpass=document.getElementById("conpass")
+					if(conpass.value != "")
+					{
+							if(conpass.value != pass.value)
+							{
+								alert("Password & Confirm Passwod do not match")
+							}
+					}
+					else
+					{
+						alert("Confirm Password is Empty")
+					}
+				}
+				</script>
+			<h2>Create an Account</h2>
+			<p class="hint-text">Sign up with your social media account or email address</p>
+			<div class="social-btn text-center">
+				<a href="#" class="btn btn-primary btn-lg"><i class="fa fa-facebook"></i> Facebook</a>
+				<a href="#" class="btn btn-info btn-lg"><i class="fa fa-twitter"></i> Twitter</a>
+				<a href="#" class="btn btn-danger btn-lg"><i class="fa fa-google"></i> Google</a>
+			</div>
+			<div class="or-seperator"><b>or</b></div>
+			<div class="form-group">
+				<input type="text" class="form-control input-lg" name="username" placeholder="Username" id="fname" required="required">
+			</div>
+			<div class="form-group">
+				<input type="number" class="form-control input-lg" name="cnic" id="cnic1" placeholder="CNIC Number" required="required">
+			</div>
+			<div class="form-group">
+				<input type="number" class="form-control input-lg" name="phone" id="phone1" placeholder="Phone Number" required="required">
+			</div>
+			<div class="form-group">
+				<input type="email" class="form-control input-lg" name="email" id="emailc" placeholder="Email Address" required="required">
+			</div>
+			
+			<div class="form-group">
+				<input type="password" class="form-control input-lg" name="password" id="pass" placeholder="Password" required="required">
+			</div>
+			<div class="form-group">
+				<input type="password" class="form-control input-lg" name="passwordConf" id="conpass" placeholder="Confirm Password" required="required">
+			</div>  
+			<div class="form-group">
+				<input type="submit" onclick="check()" value="Register" class="btn btn-success">
+			</div>
+		</form>
+		
+		<div class="text-center" style="color: #df4930;">Already have an account? <a href="/login ">Login here</a></div>
+	</div>
+</body>
+</html>
