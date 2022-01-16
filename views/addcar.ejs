@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Uploading</title>
+</head>
+  
+<body>
+    <h1>To Upload Image on mongoDB</h1>
+    <hr>
+    <div>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="name">Image Title</label>
+                <input type="text" id="name" placeholder="Name" 
+                       value="" name="name" required>
+            </div>
+            <div>
+                <label for="desc">Image Description</label>
+                <textarea id="desc" name="desc" value="" rows="2" 
+                          placeholder="Description" required>
+                </textarea>
+            </div>
+            <div>
+                <label for="image">Upload Image</label>
+                <input type="file" id="img" 
+                       name="img" value="" required>
+            </div>
+            <div>
+                <label for="name">Price Per Hour</label>
+                <input type="number" id="PPH" placeholder="$10.99" 
+                       value="" name="PPH" required>
+            </div>
+            <div>
+                <label for="name">Price Per Hour for day</label>
+                <input type="number" id="PPD" placeholder="$60" 
+                       value="" name="PPD" required>
+            </div>
+            <div>
+                <label for="name">Price Per Month</label>
+                <input type="number" id="PPM" placeholder="$995.99" 
+                       value="" name="PPM" required>
+            </div>
+            <div>
+                <label for="name">Rating</label>
+                <input type="number" id="rating" placeholder="1-5" 
+                       value="" name="rating" required>
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+  
+    <hr>
+  
+    <h1>Uploaded Images</h1>
+    
+</body>
+  
+</html>
